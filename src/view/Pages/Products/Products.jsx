@@ -44,8 +44,9 @@ Boîtier : Boîtier en verre trempé avec éclairage RGB personnalisable pour un
   };
 
   return (
-    <div className="p-4 min-h-screen max-w-[80%] flex">
-      <div className="bg-gray-100 h-screen p-4 rounded-lg shadow mb-6 w-1/4  sticky top-0">
+    <div className="p-4 min-h-screen max-w-[80%] flex flex-col lg:flex-row">
+      {/* Filters Sidebar */}
+      <div className="bg-gray-100 lg:h-screen p-4 rounded-lg shadow mb-6 w-full lg:w-1/4 lg:sticky lg:top-0">
         <h2 className="text-xl font-bold mb-4 text-center text-blue-700">Filters</h2>
         <div className="flex flex-col items-center gap-4 w-full">
           <div className="flex flex-col gap-4 w-full">
@@ -60,15 +61,13 @@ Boîtier : Boîtier en verre trempé avec éclairage RGB personnalisable pour un
                   className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
                   placeholder="Search by title"
                 />
-                <label htmlFor="title" className="mt-2 mb-2 block text-sm font-medium text-gray-700">Category</label>
-
+                <label htmlFor="category" className="mt-2 mb-2 block text-sm font-medium text-gray-700">Category</label>
                 <select className="block text-sm font-medium text-gray-700">
-                    <option value="0" selected >...</option>
+                    <option value="0" selected>...</option>
                     <option value="1">Laptop</option>
                     <option value="2">PC Gamer</option>
                     <option value="3">Computer Delle</option>
                 </select>
-               
               </div>
               <div className="flex flex-col flex-1">
                 <label htmlFor="minPrice" className="block text-sm font-medium text-gray-700">Min Price</label>
@@ -81,7 +80,6 @@ Boîtier : Boîtier en verre trempé avec éclairage RGB personnalisable pour un
                   className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
                   placeholder="Min"
                 />
-                
               </div>
               <div className="flex flex-col flex-1">
                 <label htmlFor="maxPrice" className="block text-sm font-medium text-gray-700">Max Price</label>
@@ -103,15 +101,14 @@ Boîtier : Boîtier en verre trempé avec éclairage RGB personnalisable pour un
               >
                 Clear Filters
               </button>
-              
-              
             </div>
           </div>
         </div>
       </div>
 
-      <div className="w-3/4 pl-4">
-        <div className="flex flex-col space-y-4 cursor-pointer ">
+      {/* Product Display Area */}
+      <div className="w-full lg:w-3/4 lg:pl-4">
+        <div className="flex flex-col space-y-4 cursor-pointer">
           {filteredCards.map(card => (
             <Card
               key={card.id}

@@ -9,6 +9,11 @@ export default function Header() {
     setIsOpen(prev => !prev);
   };
 
+  // Nouvelle fonction pour fermer le menu lors du clic sur un lien
+  const handleCloseMenu = () => {
+    setIsOpen(false);
+  };
+
   const getMenuItemClass = (path) => {
     return location.pathname === path
       ? "relative max-w-fit pr-3 md:pr-0 py-1 after:bg-gradient-to-r from-[#2b68e0] to-blue-700 after:absolute after:h-1 after:w-full after:bottom-0 after:left-0 after:transition-all after:duration-300"
@@ -29,16 +34,17 @@ export default function Header() {
           >
             <ul className="flex md:flex-row flex-col md:items-center md:gap-[2vw] gap-8">
               <li className={getMenuItemClass("/")}>
-                <Link to="/">Home</Link>
+                {/* Ajout d'un gestionnaire onClick pour fermer le menu */}
+                <Link to="/" onClick={handleCloseMenu}>Home</Link>
               </li>
               <li className={getMenuItemClass("/products")}>
-                <Link to="/products">Products</Link>
+                <Link to="/products" onClick={handleCloseMenu}>Products</Link>
               </li>
               <li className={getMenuItemClass("/about")}>
-                <Link to="/about">About Us</Link>
+                <Link to="/about" onClick={handleCloseMenu}>About Us</Link>
               </li>
               <li className={getMenuItemClass("/contact")}>
-                <Link to="/contact">Contact Us</Link>
+                <Link to="/contact" onClick={handleCloseMenu}>Contact Us</Link>
               </li>
             </ul>
           </div>
