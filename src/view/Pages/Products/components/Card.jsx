@@ -5,7 +5,7 @@ export default function Card({ title, description, imageUrl, price, reviews }) {
   const { rating, numberOfReviews } = reviews || { rating: 0, numberOfReviews: 0 }; // Default values
 
   return (
-    <div className="relative w-full bg-white border border-gray-200 rounded-lg shadow-md flex flex-col md:flex-row hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+    <div className="relative w-full bg-white border border-gray-200 rounded-lg shadow-md flex  flex-col md:flex-row hover:shadow-xl  dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
       <img
         className="object-cover w-full h-48 rounded-t-lg md:w-64 md:h-64 md:rounded-none md:rounded-l-lg"
         src={imageUrl}
