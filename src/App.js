@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import './index.css';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+
+import Home from './view/Pages/Home/Home';
+import Products from './view/Pages/Products/Products';
+import Header from './view/components/Header';
+import Footer from './view/components/Footer';
+import 'flowbite';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Header />
+        <main>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/products" element={<Products />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 
