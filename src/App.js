@@ -13,7 +13,7 @@ function App() {
     <Router>
       <div className="App">
         <Header />
-        <main className='flex justify-center bg-gray-200 mt-14'>
+        <main className='flex justify-center bg-gray-100 mt-14'>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/products" element={<Products />} />
