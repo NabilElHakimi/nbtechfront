@@ -6,12 +6,14 @@ export default function Home() {
   const cardCount = 10; 
 
   const renderCards = () => {
-    return Array.from({ length: cardCount }, (_, index) => <Card key={index} />);
+    return Array.from({ length: cardCount }, (_, index) => (
+      <Card key={index} id={index + 1} /> // Pass an ID for routing
+    ));
   };
 
   return (
     <div className="min-h-screen max-w-[80%] flex flex-col items-center">
-      <div className="w-full max-w-6xl mx-auto my-8 ">
+      <div className="w-full max-w-6xl mx-auto my-8">
         <Carousel />
       </div>
 

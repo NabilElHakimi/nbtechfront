@@ -3,3 +3,7 @@
 @tailwind utilities;
 
 
+*{
+  user-select: none;
+  font-family: "Nanum Gothic", sans-serif;
+}
