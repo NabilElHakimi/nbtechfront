@@ -1,11 +1,18 @@
 import React from 'react';
-import { ShoppingCartIcon } from '@heroicons/react/24/solid'; // Import the shopping cart icon
+import { useNavigate } from 'react-router-dom';
+import { ShoppingCartIcon } from '@heroicons/react/24/solid';
 
-export default function Card({ title, description, imageUrl, price, reviews }) {
-  const { rating, numberOfReviews } = reviews || { rating: 0, numberOfReviews: 0 }; // Default values
+export default function Card({ id, title, description, imageUrl, price, reviews }) {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(`/product/${id}`);
+  };
+
+  const { rating, numberOfReviews } = reviews || { rating: 0, numberOfReviews: 0 };
 
   return (
-    <div className="relative w-full bg-white border border-gray-200 rounded-lg shadow-md flex  flex-col md:flex-row hover:shadow-xl  dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+    <div onClick={handleClick} className="relative w-full bg-white border border-gray-200 rounded-lg shadow-md flex flex-col md:flex-row hover:shadow-xl dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
       <img
         className="object-cover w-full h-48 rounded-t-lg md:w-64 md:h-64 md:rounded-none md:rounded-l-lg"
         src={imageUrl}
@@ -14,9 +21,8 @@ export default function Card({ title, description, imageUrl, price, reviews }) {
       <div className="flex flex-col justify-between p-4 leading-normal flex-1">
         <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{title}</h5>
         <p className="mb-3 text-gray-700 dark:text-gray-400">
-            {description.length > 100 ? `${description.substring(0, 200)}...` : description}
-            </p>
-
+          {description.length > 100 ? `${description.substring(0, 200)}...` : description}
+        </p>
         <div className="flex items-center justify-end mt-auto">
           <span className="text-2xl font-bold text-blue-700 dark:text-white">{price} MAD</span>
         </div>
@@ -37,7 +43,7 @@ export default function Card({ title, description, imageUrl, price, reviews }) {
           </div>
           <span className="text-sm text-gray-500 dark:text-gray-400">{rating} ({numberOfReviews})</span>
           <button className="p-2 text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white flex items-center space-x-1">
-            <ShoppingCartIcon className="w-10 h-10 text-blue-700" title='Add To Card'/>
+            <ShoppingCartIcon className="w-10 h-10 text-blue-700" title='Add To Cart'/>
           </button>
         </div>
       </div>

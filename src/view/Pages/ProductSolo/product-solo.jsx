@@ -51,7 +51,7 @@ function ProductSolo() {
                         ))}
                     </div>
                 </div>
-                <div className="flex flex-col gap-4 bg-gray-200 xl:w-3/5 w-full shadow-lg p-6 rounded-md">
+                <div className="flex flex-col gap-4 bg-white xl:w-3/5 w-full shadow-lg p-6 rounded-md">
                     <h2 className="text-2xl font-bold text-blue-700">Product Title</h2>
 
                     <div className="flex items-center justify-start xl:justify-start flex-wrap mt-4 space-x-4">

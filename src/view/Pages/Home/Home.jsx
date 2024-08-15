@@ -7,7 +7,7 @@ export default function Home() {
 
   const renderCards = () => {
     return Array.from({ length: cardCount }, (_, index) => (
-      <Card key={index} id={index + 1} /> // Pass an ID for routing
+      <Card key={index} id={index + 1} /> 
     ));
   };
 

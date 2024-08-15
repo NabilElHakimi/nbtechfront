@@ -2,7 +2,7 @@ import React from 'react';
 
 const Review = ({ reviewer, rating, comment }) => {
   return (
-    <div className="p-4 border border-gray-200 rounded-lg shadow-lg dark:bg-gray-800 dark:border-gray-700">
+    <div className="p-4 border border-gray-200 bg-white rounded-lg shadow-lg dark:bg-gray-800 dark:border-gray-700">
       <div className="flex items-center space-x-2 mb-2">
         <span className="font-bold text-gray-900 dark:text-white">{reviewer}</span>
         <div className="flex items-center">
