@@ -12,7 +12,7 @@ function App() {
     <Router>
       <div className="App">
         <Header />
-        <main>
+        <main className='flex justify-center bg-gray-200 '>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/products" element={<Products />} />

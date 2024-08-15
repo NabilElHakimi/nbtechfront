@@ -10,7 +10,7 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center bg-gray-100">
+    <div className="min-h-screen max-w-[80%] flex flex-col items-center bg-gray-100">
       <div className="w-full max-w-6xl mx-auto my-8">
         <Carousel />
       </div>
