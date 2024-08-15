@@ -10,13 +10,13 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen max-w-[80%] flex flex-col items-center bg-gray-100">
-      <div className="w-full max-w-6xl mx-auto my-8">
+    <div className="min-h-screen max-w-[80%] flex flex-col items-center">
+      <div className="w-full max-w-6xl mx-auto my-8 ">
         <Carousel />
       </div>
 
       <div className="w-full max-w-6xl mx-auto my-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6">
           {renderCards()}
         </div>
       </div>
