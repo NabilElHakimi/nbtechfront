@@ -29,7 +29,7 @@ Boîtier : Boîtier en verre trempé avec éclairage RGB personnalisable pour un
   return (
     <div className="p-4 min-h-screen max-w-[80%] flex flex-col xl:flex-row">
       {/* Filters Sidebar */}
-      <div className="bg-gray-100 h-screen p-4 rounded-lg shadow mb-6 w-full xl:w-1/4 xl:sticky xl:top-0">
+      <div className="bg-gray-100 xl:h-screen p-4 rounded-lg shadow mb-6 w-full xl:w-1/4 xl:sticky xl:top-16">
         <h2 className="text-xl font-bold mb-4 text-center text-blue-700">Filters</h2>
         <div className="flex flex-col items-center gap-4 w-full">
           <div className="flex flex-col gap-4 w-full">

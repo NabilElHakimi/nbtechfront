@@ -21,8 +21,8 @@ export default function Header() {
   };
 
   return (
-    <header className="relative shadow-lg px-3 py-2 z-50 ">
-      <nav className="flex justify-around items-center">
+    <header className="fixed top-0 left-0 right-0 shadow-lg px-3 py-2 z-50 bg-white">
+      <nav className="flex justify-between xl:justify-around items-center">
         <div className="w-[130px] md:w-[200px] flex items-center">
           <Link to={'/'} className="text-red-600 text-2xl font-bold cursor-pointer">
             NB<span className="text-blue-700">tech</span>
