@@ -1,14 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Card from "./components/Card";
 
 const cardCount = 10;
 
 export default function Products() {
-  const [titleFilter, setTitleFilter] = useState('');
-  const [minPriceFilter, setMinPriceFilter] = useState(0);
-  const [maxPriceFilter, setMaxPriceFilter] = useState(100);
-
-  const [cards] = useState(Array.from({ length: cardCount }, (_, index) => ({
+  const cards = Array.from({ length: cardCount }, (_, index) => ({
     id: index,
     title: `Card ${index + 1}`,
     description: `Le PC Gamer Xtreme 2024 est une machine de haute performance conçue pour les passionnés de jeux vidéo et les professionnels de l'informatique. Équipé des dernières technologies, ce PC offre une expérience de jeu immersive et une puissance de traitement exceptionnelle.
@@ -22,31 +18,18 @@ Carte Mère : Carte mère ATX avec support pour PCIe 5.0 et USB 4.0 pour une con
 Refroidissement : Système de refroidissement liquide haute performance pour maintenir des températures optimales même lors des sessions de jeu les plus intenses.
 Alimentation : Bloc d’alimentation de 850W certifié 80+ Gold pour une efficacité énergétique accrue et une fiabilité maximale.
 Boîtier : Boîtier en verre trempé avec éclairage RGB personnalisable pour un design moderne et élégant. ${index + 1}`,
-
     imageUrl: "https://www.bestmark.ma/pub/media/catalog/product/cache/25b125dca8e1d433263f9ae299f7439b/8/4/845m6ea-02.jpg",
     price: Math.floor(Math.random() * 100) + 1, // Random price between 1 and 100
     reviews: {
       rating: (Math.random() * 5).toFixed(1), // Random rating between 0 and 5
       numberOfReviews: Math.floor(Math.random() * 100) // Random number of reviews between 0 and 100
     }
-  })));
-
-  const filteredCards = cards.filter(card =>
-    card.title.toLowerCase().includes(titleFilter.toLowerCase()) &&
-    card.price >= minPriceFilter &&
-    card.price <= maxPriceFilter
-  );
-
-  const handleClearFilters = () => {
-    setTitleFilter('');
-    setMinPriceFilter(0);
-    setMaxPriceFilter(100);
-  };
+  }));
 
   return (
-    <div className="p-4 min-h-screen max-w-[80%] flex flex-col lg:flex-row">
+    <div className="p-4 min-h-screen max-w-[80%] flex flex-col xl:flex-row">
       {/* Filters Sidebar */}
-      <div className="bg-gray-100 lg:h-screen p-4 rounded-lg shadow mb-6 w-full lg:w-1/4 lg:sticky lg:top-0">
+      <div className="bg-gray-100 h-screen p-4 rounded-lg shadow mb-6 w-full xl:w-1/4 xl:sticky xl:top-0">
         <h2 className="text-xl font-bold mb-4 text-center text-blue-700">Filters</h2>
         <div className="flex flex-col items-center gap-4 w-full">
           <div className="flex flex-col gap-4 w-full">
@@ -56,8 +39,6 @@ Boîtier : Boîtier en verre trempé avec éclairage RGB personnalisable pour un
                 <input
                   id="title"
                   type="text"
-                  value={titleFilter}
-                  onChange={(e) => setTitleFilter(e.target.value)}
                   className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
                   placeholder="Search by title"
                 />
@@ -75,8 +56,6 @@ Boîtier : Boîtier en verre trempé avec éclairage RGB personnalisable pour un
                   id="minPrice"
                   type="number"
                   min="0"
-                  value={minPriceFilter}
-                  onChange={(e) => setMinPriceFilter(Number(e.target.value))}
                   className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
                   placeholder="Min"
                 />
@@ -87,18 +66,13 @@ Boîtier : Boîtier en verre trempé avec éclairage RGB personnalisable pour un
                   id="maxPrice"
                   type="number"
                   min="0"
-                  value={maxPriceFilter}
-                  onChange={(e) => setMaxPriceFilter(Number(e.target.value))}
                   className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
                   placeholder="Max"
                 />
               </div>
             </div>
             <div className="flex gap-4 mt-4">
-              <button
-                onClick={handleClearFilters}
-                className="text-red-500"
-              >
+              <button className="text-red-500">
                 Clear Filters
               </button>
             </div>
@@ -107,9 +81,9 @@ Boîtier : Boîtier en verre trempé avec éclairage RGB personnalisable pour un
       </div>
 
       {/* Product Display Area */}
-      <div className="w-full lg:w-3/4 lg:pl-4">
+      <div className="w-full xl:w-3/4 xl:pl-4">
         <div className="flex flex-col space-y-4 cursor-pointer">
-          {filteredCards.map(card => (
+          {cards.map(card => (
             <Card
               key={card.id}
               title={card.title}
