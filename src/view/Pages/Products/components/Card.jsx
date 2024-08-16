@@ -1,6 +1,5 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ShoppingCartIcon } from '@heroicons/react/24/solid';
 
 export default function Card({ id, title, description, imageUrl, price, reviews }) {
   const navigate = useNavigate();
@@ -23,10 +22,8 @@ export default function Card({ id, title, description, imageUrl, price, reviews 
         <p className="mb-3 text-gray-700 dark:text-gray-400">
           {description.length > 100 ? `${description.substring(0, 200)}...` : description}
         </p>
-        <div className="flex items-center justify-end mt-auto">
-          <span className="text-2xl font-bold text-blue-700 dark:text-white">{price} MAD</span>
-        </div>
-        <div className="flex items-center justify-end mt-4 space-x-2 rtl:space-x-reverse">
+    
+        <div className="flex items-center justify-start mt-4 space-x-2 rtl:space-x-reverse">
           <div className="flex items-center space-x-1 rtl:space-x-reverse">
             {[...Array(5)].map((_, index) => (
               <svg
@@ -42,9 +39,13 @@ export default function Card({ id, title, description, imageUrl, price, reviews 
             ))}
           </div>
           <span className="text-sm text-gray-500 dark:text-gray-400">{rating} ({numberOfReviews})</span>
-          <button className="p-2 text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white flex items-center space-x-1">
-            <ShoppingCartIcon className="w-10 h-10 text-blue-700" title='Add To Cart'/>
-          </button>
+          
+        </div>
+        <div className="flex items-center justify-between mt-6">
+          <span className="text-3xl font-bold text-blue-900 dark:text-white">$599</span>
+          <a href="#" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            Add to cart
+          </a>
         </div>
       </div>
     </div>

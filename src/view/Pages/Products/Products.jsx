@@ -18,21 +18,21 @@ export default function Products() {
 
   return (
     <div className="p-4 min-h-screen max-w-[80%] flex flex-col xl:flex-row">
-      <div className="bg-white xl:h-screen p-4 rounded-lg shadow mb-6 w-full xl:w-1/4 xl:sticky xl:top-16">
-        <h2 className="text-xl font-bold mb-4 text-center text-blue-700">Filters</h2>
+      <div className="bg-blue-800 xl:h-screen p-4  rounded-lg shadow-xl mb-6 w-full xl:w-1/4 xl:sticky xl:top-16">
+        <h2 className="text-xl font-bold mb-4 text-center text-white">Filters</h2>
         <div className="flex flex-col items-center gap-4 w-full">
           <div className="flex flex-col gap-4 w-full">
             <div className="flex flex-col gap-4 w-full">
               <div className="flex flex-col flex-1">
-                <label htmlFor="title" className="block text-sm font-medium text-gray-700">Title</label>
+                <label htmlFor="title" className="block text-sm font-medium text-white">Title</label>
                 <input
                   id="title"
                   type="text"
                   className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
                   placeholder="Search by title"
                 />
-                <label htmlFor="category" className="mt-2 mb-2 block text-sm font-medium text-gray-700">Category</label>
-                <select className="block text-sm font-medium text-gray-700" defaultValue="0">
+                <label htmlFor="category" className="mt-2 mb-2 block text-sm font-medium text-white">Category</label>
+                <select className="block text-sm font-medium text-black" defaultValue="0">
                   <option value="0">...</option>
                   <option value="1">Laptop</option>
                   <option value="2">PC Gamer</option>
@@ -40,7 +40,7 @@ export default function Products() {
                 </select>
               </div>
               <div className="flex flex-col flex-1">
-                <label htmlFor="minPrice" className="block text-sm font-medium text-gray-700">Min Price</label>
+                <label htmlFor="minPrice" className="block text-sm font-medium text-white">Min Price</label>
                 <input
                   id="minPrice"
                   type="number"
@@ -50,7 +50,7 @@ export default function Products() {
                 />
               </div>
               <div className="flex flex-col flex-1">
-                <label htmlFor="maxPrice" className="block text-sm font-medium text-gray-700">Max Price</label>
+                <label htmlFor="maxPrice" className="block text-sm font-medium text-white">Max Price</label>
                 <input
                   id="maxPrice"
                   type="number"
@@ -61,7 +61,7 @@ export default function Products() {
               </div>
             </div>
             <div className="flex gap-4 mt-4">
-              <button className="text-red-500">
+              <button className="text-white hover:bg-blue-700 bg-blue-600 p-2 rounded ">
                 Clear Filters
               </button>
             </div>

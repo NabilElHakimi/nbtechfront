@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="flex flex-col items-center text-center">
         <div className="w-fullmd:w-[200px] flex items-center mb-4">
           <Link to={'/'} className="text-red-600 text-2xl font-bold cursor-pointer">
-            NB<span className="text-blue-700">tech</span>
+            NB<span className="text-blue-800">tech</span>
           </Link>
         </div>
         <div className="w-full flex flex-col md:flex-row justify-center gap-8 mb-4">

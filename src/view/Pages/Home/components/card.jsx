@@ -19,7 +19,7 @@ export default function Card({ id }) {
         alt="product image"
       />
       <div className="px-5 pb-5">
-        <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+        <h5 className="text-lg font-semibold tracking-tight text-gray-900 dark:text-white">
           Apple Watch Series 7 GPS, Aluminium Case, Starlight Sport
         </h5>
         <div className="flex items-center mt-2.5 mb-5">

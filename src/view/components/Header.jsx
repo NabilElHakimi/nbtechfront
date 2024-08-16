@@ -25,7 +25,7 @@ export default function Header() {
       <nav className="flex justify-between xl:justify-around items-center">
         <div className="w-[130px] md:w-[200px] flex items-center">
           <Link to={'/'} className="text-red-600 text-2xl font-bold cursor-pointer">
-            NB<span className="text-blue-700">tech</span>
+            NB<span className="text-blue-800">tech</span>
           </Link>
         </div>
         <div className="flex items-center gap-3">
@@ -51,7 +51,7 @@ export default function Header() {
           <div className="flex items-center gap-2">
             <button
               type="button"
-              className="hover:bg-clip-text hover:text-transparent bg-blue-700 border-solid border-2 border-blue-600 font-bold text-white px-5 py-2 rounded-full"
+              className="hover:bg-blue-800 bg-blue-700  font-bold text-white px-5 py-2 rounded-xl"
             >
               Login
             </button>
