@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { FaCartShopping } from "react-icons/fa6";
-import Card from "./Card";
+import { IoMdClose } from "react-icons/io";
+
+import Card from "./card";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,7 +20,7 @@ export default function Header() {
   };
 
   const handleDrawerToggle = () => {
-    setIsDrawerOpen((prev) => !prev);
+    setIsDrawerOpen(prev => !prev);  // <--- Bascule l'état du tiroir à chaque clic
   };
 
   const handleClickOutside = (event) => {
@@ -91,7 +93,7 @@ export default function Header() {
               <div className="relative mr-4">
                 <FaCartShopping
                   className="text-blue-700 w-8 h-6 cursor-pointer hover:text-blue-800"
-                  onClick={handleDrawerToggle}
+                  onClick={handleDrawerToggle}  // <--- Bascule l'état du tiroir à chaque clic
                 />
                 <span className="absolute font-bold top-[-60%] right-[-40%] text-[12px] bg-yellow-500 rounded-full w-6 h-6 flex justify-center items-center text-white">
                   10
@@ -143,20 +145,22 @@ export default function Header() {
           isDrawerOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <div className="p-4 border-b border-gray-200 flex justify-between items-center">
-          <h2 className="text-lg font-bold">Your Cart</h2>
-          <button
-            type="button"
-            className="text-[20px] cursor-pointer"
-            onClick={handleDrawerToggle}
-          >
-            &times;
-          </button>
+          <div className="p-4  border-gray-200 flex justify-between items-center mt-16">
+            <h1 className="text-2xl font-bold">Cart</h1>
+            <IoMdClose
+
+              className="text-blue-700 w-8 h-6 cursor-pointer hover:text-blue-800"
+              onClick={handleDrawerToggle}  
+            />
+          
         </div>
         <div>
           <Card />
           <Card />
           <Card />
+          <Card />
+          <Card />
+        
         </div>
         <div className="p-4 border-t border-gray-200">
           <button className="w-full bg-blue-700 text-white py-2 rounded-lg hover:bg-blue-800">
