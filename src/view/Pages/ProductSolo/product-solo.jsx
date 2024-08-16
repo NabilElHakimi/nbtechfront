@@ -82,7 +82,7 @@ function ProductSolo() {
                             <ShoppingCartIcon className="w-10 h-10  text-blue-700" title="Add To Cart" />
                         </button>
                     </div>
-                    <p className="text-lg text-justify">
+                    <p className="text-justify">
                         Le PC Gamer Xtreme 2024 est une machine de haute performance conçue
                         pour les passionnés de jeux vidéo et les professionnels de
                         l'informatique. Équipé des dernières technologies, ce PC offre une
