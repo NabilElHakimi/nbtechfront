@@ -61,7 +61,7 @@ export default function Products() {
               </div>
             </div>
             <div className="flex gap-4 mt-4">
-              <button className="text-white hover:bg-blue-700 bg-blue-600 p-2 rounded ">
+              <button className="text-white hover:bg-blue-700 bg-blue-600 shadow-lg p-2 rounded ">
                 Clear Filters
               </button>
             </div>
