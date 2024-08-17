@@ -165,7 +165,7 @@ export default function Header() {
               title="Close"
             />
           </div>
-          <div className="flex-1 overflow-y-auto p-4">
+          <div className="flex-1  overflow-y-auto p-4">
             {products.length === 0 ? (
               <p className="text-center text-gray-700">Votre panier est vide.</p>
             ) : (
