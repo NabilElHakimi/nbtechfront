@@ -8,8 +8,17 @@ import Card from "./card";
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [products, setProducts] = useState([]); // État pour les produits
   const location = useLocation();
   const drawerRef = useRef(null);
+
+  useEffect(() => {
+    const initialProducts = [];
+    for (let i = 0; i < 2; i++) {
+      initialProducts.push({ id: i, name: `Produit ${i + 1}` });
+    }
+    setProducts(initialProducts);
+  }, []);
 
   const handleMenuToggle = () => {
     setIsOpen((prev) => !prev);
@@ -20,13 +29,18 @@ export default function Header() {
   };
 
   const handleDrawerToggle = () => {
-    setIsDrawerOpen(prev => !prev);  // <--- Bascule l'état du tiroir à chaque clic
+    setIsDrawerOpen((prev) => !prev);
   };
 
   const handleClickOutside = (event) => {
     if (drawerRef.current && !drawerRef.current.contains(event.target)) {
       setIsDrawerOpen(false);
     }
+  };
+
+  const handleDeleteProduct = (productId) => {
+    const updatedProducts = products.filter((product) => product.id !== productId);
+    setProducts(updatedProducts);
   };
 
   useEffect(() => {
@@ -47,10 +61,7 @@ export default function Header() {
       <header className="fixed top-0 left-0 right-0 shadow-lg px-3 py-3 z-50 bg-white">
         <nav className="flex justify-between xl:justify-around items-center">
           <div className="w-[130px] md:w-[200px] flex items-center">
-            <Link
-              to={"/"}
-              className="text-red-600 text-2xl font-bold cursor-pointer"
-            >
+            <Link to={"/"} className="text-red-600 text-2xl font-bold cursor-pointer">
               NB<span className="text-blue-800">tech</span>
             </Link>
           </div>
@@ -93,10 +104,10 @@ export default function Header() {
               <div className="relative mr-4">
                 <FaCartShopping
                   className="text-blue-700 w-8 h-6 cursor-pointer hover:text-blue-800"
-                  onClick={handleDrawerToggle}  // <--- Bascule l'état du tiroir à chaque clic
+                  onClick={handleDrawerToggle}
                 />
                 <span className="absolute font-bold top-[-60%] right-[-40%] text-[12px] bg-yellow-500 rounded-full w-6 h-6 flex justify-center items-center text-white">
-                  10
+                  {products.length}
                 </span>
               </div>
               <button
@@ -141,31 +152,39 @@ export default function Header() {
       </header>
       <div
         ref={drawerRef}
-        className={`overflow-y-auto fixed top-0 right-0 h-full w-full xl:w-[30%] bg-gray-100 shadow-lg z-40 transition-transform duration-300 ${
+        className={`fixed top-[60px] right-0 w-full xl:w-[30%] bg-gray-200 shadow-lg z-40 transition-transform duration-300 ${
           isDrawerOpen ? "translate-x-0" : "translate-x-full"
         }`}
+        style={{ height: `calc(100vh - 60px)` }} // Hauteur du tiroir moins la hauteur de l'en-tête
       >
-          <div className="p-4  border-gray-200 flex justify-between items-center mt-16">
-            <h1 className="text-2xl font-bold">Cart</h1>
+        <div className="flex flex-col h-full">
+          <div className="p-4 border-gray-200 flex justify-end items-center">
             <IoMdClose
-
               className="text-blue-700 w-8 h-6 cursor-pointer hover:text-blue-800"
-              onClick={handleDrawerToggle}  
+              onClick={handleDrawerToggle}
+              title="Close"
             />
-          
-        </div>
-        <div>
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-        
-        </div>
-        <div className="p-4 border-t border-gray-200">
-          <button className="w-full bg-blue-700 text-white py-2 rounded-lg hover:bg-blue-800">
-            Checkout
-          </button>
+          </div>
+          <div className="flex-1 overflow-y-auto p-4">
+            {products.length === 0 ? (
+              <p className="text-center text-gray-700">Votre panier est vide.</p>
+            ) : (
+              products.map((product) => (
+                <Card
+                  key={product.id}
+                  product={product}
+                  onDelete={handleDeleteProduct}
+                />
+              ))
+            )}
+          </div>
+          {products.length > 0 && (
+            <div className="p-4 border-t border-gray-200">
+              <button className="w-full bg-blue-700 text-white py-2 rounded-lg hover:bg-blue-800">
+                Checkout
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </>
