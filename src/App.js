@@ -6,6 +6,7 @@ import Products from './view/Pages/Products/Products';
 import ProductSolo from './view/Pages/ProductSolo/product-solo';
 import Header from './view/components/Header';
 import Footer from './view/components/Footer';
+import Login from './view/Pages/Auth/Login.jsx';
 import 'flowbite';
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/products" element={<Products />} />
             <Route path="/product/:id" element={<ProductSolo />} />
+            <Route path="/login" element={<Login />} />
           </Routes>
         </main>
         <Footer />

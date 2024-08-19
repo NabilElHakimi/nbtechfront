@@ -95,12 +95,13 @@ export default function Header() {
               </ul>
             </div>
             <div className="flex items-center gap-2">
-              {/* <button
+              <Link
+                to="/login"
                 type="button"
                 className="hover:bg-blue-800 bg-blue-700 font-bold text-white px-5 py-2 rounded-xl"
               >
                 Login
-              </button> */}
+              </Link>
               <div className="relative mr-4">
                 <FaCartShopping
                   className="text-blue-700 w-8 h-6 cursor-pointer hover:text-blue-800"

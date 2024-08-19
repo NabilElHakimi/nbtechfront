@@ -1,9 +1,12 @@
-import { ShoppingCartIcon, CurrencyDollarIcon } from '@heroicons/react/24/solid';
+import { useState } from 'react';
+import { ShoppingCartIcon } from '@heroicons/react/24/solid';
 import Card from '../Home/components/card';
-import Review from './components/Review'; 
+import Review from './components/Review';
 
 function ProductSolo() {
-    const cardCount = 10; 
+    const [selectedImage, setSelectedImage] = useState("https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/page/category/g-series-16-7630-laptop-lf-800x620.png?fmt=png-alpha&wid=800&hei=620");
+
+    const cardCount = 10;
     const reviews = [
         { reviewer: 'Jane Smith', rating: 5, comment: 'Exceeded my expectations!' },
         { reviewer: 'Alice Johnson', rating: 3, comment: 'Good value for the price.' },
@@ -12,8 +15,12 @@ function ProductSolo() {
         { reviewer: 'Emily Brown', rating: 4, comment: 'Very satisfied with my purchase.' },
         { reviewer: 'Sarah Miller', rating: 5, comment: 'Excellent product. Fast shipping.' },
         { reviewer: 'Tom Davis', rating: 4, comment: 'Good product. Would buy again.' },
-            
         // Add more reviews as needed
+    ];
+
+    const smallImages = [
+        "https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/page/category/g-series-16-7630-laptop-lf-800x620.png?fmt=png-alpha&wid=800&hei=620",
+        // Add more image URLs as needed
     ];
 
     const renderCards = () => {
@@ -37,26 +44,23 @@ function ProductSolo() {
                 <div className="xl:w-2/5 w-full">
                     <img
                         className="w-full rounded-lg"
-                        src="https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/page/category/g-series-16-7630-laptop-lf-800x620.png?fmt=png-alpha&wid=800&hei=620"
+                        src={selectedImage}
                         alt="product"
                     />
                     <div className="flex gap-2 overflow-x-auto mt-2">
-                        {[...Array(7)].map((_, index) => (
+                        {smallImages.map((img, index) => (
                             <img
                                 key={index}
-                                className="w-[25%] bg-gray-200 rounded-sm flex-shrink-0"
-                                src="https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/page/category/g-series-16-7630-laptop-lf-800x620.png?fmt=png-alpha&wid=800&hei=620"
+                                className="w-[25%] bg-gray-200 rounded-sm flex-shrink-0 cursor-pointer"
+                                src={img}
                                 alt="product"
+                                onClick={() => setSelectedImage(img)} // Update the selected image on click
                             />
                         ))}
                     </div>
                 </div>
                 <div className="flex flex-col gap-4 bg-white xl:w-3/5 w-full shadow-lg p-6 rounded-md">
                     <h2 className="text-2xl font-bold text-blue-700">Product Title</h2>
-
-                  
-
-                    
                     <p className="text-justify">
                         Le PC Gamer Xtreme 2024 est une machine de haute performance conçue
                         pour les passionnés de jeux vidéo et les professionnels de
@@ -94,8 +98,6 @@ function ProductSolo() {
                         <span className="text-sm text-gray-500 dark:text-gray-400">
                             4.0 (23 reviews)
                         </span>
-                        
-                        
                     </div>
                     <div className="flex items-center justify-between mt-6">
                         <span className="text-3xl font-bold text-blue-900 dark:text-white">$599</span>
