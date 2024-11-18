@@ -12,7 +12,7 @@ export default function Login() {
     return (
         <>
             <div className="w-full h-screen flex justify-center items-center p-4">
-                <form className="bg-white p-6 sm:p-8 md:p-10 rounded-md shadow-md w-full sm:w-[80%] md:w-[60%] lg:w-[40%]">
+                <form className="bg-white p-6 sm:p-8 md:p-10 rounded-md shadow-md w-full sm:w-[80%] md:w-[30%] lg:w-[30%]">
                     <div className="w-full justify-center flex mb-4">
                         <Link to={"/"} className="text-red-600 text-5xl font-bold cursor-pointer">
                             NB<span className="text-blue-800">tech</span>
