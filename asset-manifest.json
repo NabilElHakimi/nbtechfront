@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/nbtechfront/static/css/main.e5d3deb4.css",
+    "main.js": "/nbtechfront/static/js/main.f525c20b.js",
+    "static/js/453.b68ed5e1.chunk.js": "/nbtechfront/static/js/453.b68ed5e1.chunk.js",
+    "index.html": "/nbtechfront/index.html",
+    "main.e5d3deb4.css.map": "/nbtechfront/static/css/main.e5d3deb4.css.map",
+    "main.f525c20b.js.map": "/nbtechfront/static/js/main.f525c20b.js.map",
+    "453.b68ed5e1.chunk.js.map": "/nbtechfront/static/js/453.b68ed5e1.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e5d3deb4.css",
+    "static/js/main.f525c20b.js"
+  ]
+}
